@@ -8,9 +8,36 @@ Task 1 of the Snort room is an introduction. It recommends the [Network Fundamen
 
 Read the task above.
 
-### Answer
+#### Answer
 
 No answer needed.
+
+## Task 2
+
+Task 2 of the Snort room will require you to Start a virtual machine to access interactive material. The Virtual Machine will look like this and will contain a "Task Exercises" folder:
+
+![Desktop VM](images/desktop-vm.png)
+
+In the "Task-Exercises" folder, there is a script "traffic-generator.sh" that is used to generate traffic for Snort since the machine has no internet connection.
+
+![Task Exercises](images/task-exercises-folder.png)
+
+### Question 1
+
+Navigate to the Task-Exercises folder and run the command "./.easy.sh" and write the output
+
+#### Answer 
+
+Too Easy!
+
+![Easy Script Output](images/easy-script-output.png)
+
+
+
+
+
+
+
 
 
 
