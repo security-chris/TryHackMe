@@ -32,6 +32,76 @@ Too Easy!
 
 ![Easy Script Output](images/easy-script-output.png)
 
+## Task 3
+
+Task 3 in the Snort room is all about the differences between detection and prevention (IPS vs IDS). The biggest difference is that IDS detect and IPS detects and prevents (takes action on). IDS has:
+
+- Network-Based Intrusion Detection System (NIDS)
+- Host-Based Intrusion Detection System (HIDS) 
+
+IPS has 4 different types which are:
+
+- Network Intruction Prevention System (NIPS)
+- Behavior-based Intrusion Prevention System (Network Behavior Analysis - NBA)
+- Wireless Intrusion Prevention System (WIPS)
+- Host-based Intrusion Prevention System (HIPS)
+
+### Question 1
+
+Which IDS or IPS type can help you stop the threats on a local machine?.
+
+#### Answer
+
+HIPS
+
+### Question 2
+
+Which IDS or IPS type can help you detect threats on a local network?
+
+#### Answer
+
+NIDS
+
+### Question 3
+
+Which IDS or IPS type can help you detect the threats on a local machine?
+
+#### Answer
+
+HIDS
+
+### Question 4
+
+Which IDS or IPS type can help you stop the threats on a local network?
+
+#### Answer
+
+NIPS
+
+### Question 5
+
+Which described solution works by detecting anomalies in the network?
+
+#### Answer
+
+NBA
+
+### Question 6
+
+According to the official description of the snort, what kind of NIPS is it?
+
+#### Answer
+
+full-blown
+
+### Question 7
+
+NBA training period is also known as ...
+
+#### Answer
+
+baselining
+
 
 
 
