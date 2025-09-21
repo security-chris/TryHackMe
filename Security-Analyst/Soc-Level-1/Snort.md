@@ -102,6 +102,58 @@ NBA training period is also known as ...
 
 baselining
 
+## Task 4
+
+We can verify snort is installed and verify the version by running the following:
+
+```snort -V```
+
+We can also make sure that our snort configuration file is correct by running the following:
+
+```sudo snort -c /etc/snort/snort.conf -T```
+
+### Question 1
+
+Run the Snort instance and check the build number.
+
+#### Answer
+
+149
+
+![Snort Build](images/snort-build.png)
+
+### Question 2
+
+Test the current instance with "/etc/snort/snort.conf" file and check how many rules are loaded with the current build.
+
+#### Answer
+
+4151
+
+![Snort Rules Read](images/snort-rules-read.png)
+
+### Question 3
+
+Test the current instance with "/etc/snort/snortv2.conf" file and check how many rules are loaded with the current build.
+
+#### Trials
+
+For this, we can use the following command:
+
+```sudo snort -c /etc/snort/snortv2.conf -T```
+
+#### Answer
+
+1
+
+![Snort Conf v2 Rules](images/snort-rules-v2.png)
+
+
+
+
+
+
+
 
 
 
