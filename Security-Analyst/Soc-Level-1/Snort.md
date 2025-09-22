@@ -365,6 +365,25 @@ What is the number of the detected HTTP GET methods?
 
 #### Answer
 
+2
+
+For this question, you will want to start the full logging by using the following command provided in the question:
+
+```sudo snort -c /etc/snort/snort.conf -A full -l .```
+
+From there, you will start the traffic generator for Task 7:
+
+```sudo ./traffic-generator.sh```
+
+![Task 7 Question 1](images/task7-question1.png)
+
+### Question 2
+
+You can practice the rest of the parameters by using the traffic-generator script.
+
+#### Answer
+
+No answer needed
 
 
 
