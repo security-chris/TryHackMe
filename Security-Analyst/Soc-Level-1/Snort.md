@@ -302,6 +302,69 @@ This question is just looking for the numbert of packets that fit this descripti
 
 ![Task 6 Question 5](images/task6-question5.png)
 
+## Task 7
+
+### Snort in IDS/IPS Mode Parameters
+
+**`-c`** - Defining the configuration file.
+**`-T`** - Testing the configuration file.
+**`-N`** - Disable logging.
+**`-D`** - Background mode.
+**`-A`** - Alert modes;
+full: Full alert mode, providing all possible information about the alert. This one also is the default mode; once you use -A and don't specify any mode, snort uses this mode.
+
+fast:  Fast mode shows the alert message, timestamp, source and destination IP, along with port numbers.
+
+console: Provides fast style alerts on the console screen.
+
+cmg: CMG style, basic header details with payload in hex and text format.
+
+none: Disabling alerting.
+
+We can start snort and test the configuration file with the following command:
+
+```sudo snort -c /etc/snort/snort.conf -T```
+
+We can start snort and disable logging with the following command:
+
+```sudo snort -c /etc/snort/snort.conf -N```
+
+We can start snort in background mode with the following command:
+
+```sudo snort -c /etc/snort/snort.conf -D```
+
+We can start snort with console mode which will provide console style alerts:
+
+```sudo snort -c /etc/snort/snort.conf -A console```
+
+We can start snort with cmg mode which will provide basic header details in the terminal:
+
+```sudo snort -c /etc/snort/snort.conf -A cmg```
+
+We can start snort with fast mode which will provide alert messages, timestamps, source and destination IPs:
+
+```sudo snort -c /etc/snort/snort.conf -A fast```
+
+We can start snort with full mode which will provide all information possible about an alert:
+
+```sudo snort -c /etc/snort/snort.conf -A full```
+
+Finally, we can start snort with none mode which will disable logging:
+
+```sudo snort -c /etc/snort/snort.conf -A none```
+
+#### Question 1
+
+Investigate the traffic with the default configuration file.
+
+```sudo snort -c /etc/snort/snort.conf -A full -l .```
+Execute the traffic generator script and choose "TASK-7 Exercise". Wait until the traffic stops, then stop the Snort instance. Now analyse the output summary and answer the question.
+
+```sudo ./traffic-generator.sh```
+What is the number of the detected HTTP GET methods?
+
+#### Answer
+
 
 
 
