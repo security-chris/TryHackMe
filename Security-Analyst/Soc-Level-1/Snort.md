@@ -365,7 +365,7 @@ What is the number of the detected HTTP GET methods?
 
 #### Answer
 
-2
+**2**
 
 For this question, you will want to start the full logging by using the following command provided in the question:
 
@@ -383,7 +383,7 @@ You can practice the rest of the parameters by using the traffic-generator scrip
 
 #### Answer
 
-No answer needed
+**No answer needed**
 
 
 
