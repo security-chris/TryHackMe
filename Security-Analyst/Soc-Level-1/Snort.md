@@ -190,6 +190,120 @@ You can practice the parameter combinations by using the traffic-generator scrip
 
 No answer needed
 
+## Task 6
+
+### Snort in Logger Mode Parameters
+
+**`-l`** - Logger mode, target log and alert output directory. Default output folder is /var/log/snort The default action is to dump as tcpdump format in /var/log/snort
+
+**`-K ASCII`** - Log packets in ASCII format.
+
+**`-r`** - Reading option, read the dumped logs in Snort.
+
+**`-n`** - Specify the number of packets that will process/read. Snort will stop after reading the specified number of packets.
+
+We can start snort in packet logger mode with the following command:
+
+```sudo snort -dev -l .```
+
+This will create a file in binary/tcpdump format.
+
+To create a log in readable format, we can run the following:
+
+```sudo snort -dev -K ASCII -l .```
+
+You can also pass the `-r` parameter to read a snort log:
+
+```sudo snort -r snort.log.1758560978```
+
+**Note the log name will be different**
+
+### Question 1
+
+Investigate the traffic with the default configuration file with ASCII mode.
+
+```sudo snort -dev -K ASCII -l .```
+Execute the traffic generator script and choose "TASK-6 Exercise". Wait until the traffic ends, then stop the Snort instance. Now analyse the output summary and answer the question.
+
+```sudo ./traffic-generator.sh```
+Now, you should have the logs in the current directory. Navigate to folder "145.254.160.237". What is the source port used to connect port 53?
+
+#### Answer
+
+3009
+
+![Task 6 Question 1](images/task6-question1.png)
+
+### Question 2
+
+Use snort.log.1640048004 
+
+Read the snort.log file with Snort; what is the IP ID of the 10th packet?
+
+```snort -r snort.log.1640048004 -n 10```
+
+#### Answer
+
+49313
+
+Navigate to the Task 6 directory from the home directroy:
+
+```cd Desktop/Task-Excercies/TASK-6```
+
+From there, run the command in the question:
+
+```snort -r snort.log.1640048004 -n 10```
+
+![Task 6 Question 2](images/task6-question2.png)
+
+### Question 3
+
+Read the "snort.log.1640048004" file with Snort; what is the referer of the 4th packet?
+
+#### Answer
+
+http://www.ethereal.com/development.html
+
+To find this answer, you can use the `-X` to display the results in ASCII format. Run the following command:
+
+```snort -Xr snort.log.1640048004 -n 4```
+
+The refferer will be right down at the bottom of the packet.
+
+![Task 6 Question 3](images/task6-question3.png)
+
+### Question 4
+
+Read the "snort.log.1640048004" file with Snort; what is the Ack number of the 8th packet?
+
+#### Answer
+
+0x38AFFFF3
+
+Similar to the last question. Use the following command:
+
+```snort -Xr snort.log.1640048004 -n 8```
+
+On the 8th packet you will see an ACK field. There is your answer.
+
+![Task 6 Question 4](images/task6-question4.png)
+
+### Question 5
+
+Read the "snort.log.1640048004" file with Snort; what is the number of the "TCP port 80" packets?
+
+#### Answer
+
+41
+
+This question is just looking for the numbert of packets that fit this description. Here is the command I used:
+
+```snort -r snort.log.1640048004 'tcp and port 80'
+
+![Task 6 Question 5](images/task6-question5.png)
+
+
+
 
 
 
