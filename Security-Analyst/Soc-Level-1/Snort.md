@@ -148,6 +148,44 @@ For this, we can use the following command:
 
 ![Snort Conf v2 Rules](images/snort-rules-v2.png)
 
+## Task 5
+
+In Snort, you can sniff with -i parameter to specify an interface you would like to "sniff". For example, if I wanted to sniff traffic on the eth0 interface I would run the following:
+
+```sudo snort -v -i eth0```
+
+If we want to run snort in verbose mode(-v) (this will show the packets inside of the terminal) we can do the following:
+
+```sudo snort -v```
+
+We can also run snort in the dumping packet data mode(-d), which will be similar to verbose mode but with more data:
+
+```sudo snort -d```
+
+Similarly, we can run snort in dumping packet data mode (-d) along with link-layer heading grabbing (-e):
+
+```sudo snort -d -e```
+
+Finally, we can run with full packet data dump mode (-X):
+
+```sudo snort -X```
+
+ Parameter 	Description
+-v 	Verbose. Display the TCP/IP output in the console.
+-d 	Display the packet data (payload).
+-e 	Display the link-layer (TCP/IP/UDP/ICMP) headers. 
+-X 	Display the full packet details in HEX.
+-i 	This parameter helps to define a specific network interface to listen/sniff. Once you have multiple interfaces, you can choose a specific interface to sniff. 
+
+### Question 1
+
+You can practice the parameter combinations by using the traffic-generator script.
+
+#### Answer
+
+No answer needed
+
+
 
 
 
