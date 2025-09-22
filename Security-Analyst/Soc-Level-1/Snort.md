@@ -10,7 +10,7 @@ Read the task above.
 
 #### Answer
 
-No answer needed.
+**No answer needed.**
 
 ## Task 2
 
@@ -28,7 +28,7 @@ Navigate to the Task-Exercises folder and run the command "./.easy.sh" and write
 
 #### Answer 
 
-Too Easy!
+**Too Easy!**
 
 ![Easy Script Output](images/easy-script-output.png)
 
@@ -52,7 +52,7 @@ Which IDS or IPS type can help you stop the threats on a local machine?.
 
 #### Answer
 
-HIPS
+**HIPS**
 
 ### Question 2
 
@@ -60,7 +60,7 @@ Which IDS or IPS type can help you detect threats on a local network?
 
 #### Answer
 
-NIDS
+**NIDS**
 
 ### Question 3
 
@@ -68,7 +68,7 @@ Which IDS or IPS type can help you detect the threats on a local machine?
 
 #### Answer
 
-HIDS
+**HIDS**
 
 ### Question 4
 
@@ -76,7 +76,7 @@ Which IDS or IPS type can help you stop the threats on a local network?
 
 #### Answer
 
-NIPS
+**NIPS**
 
 ### Question 5
 
@@ -84,7 +84,7 @@ Which described solution works by detecting anomalies in the network?
 
 #### Answer
 
-NBA
+**NBA**
 
 ### Question 6
 
@@ -92,7 +92,7 @@ According to the official description of the snort, what kind of NIPS is it?
 
 #### Answer
 
-full-blown
+**full-blown**
 
 ### Question 7
 
@@ -100,7 +100,7 @@ NBA training period is also known as ...
 
 #### Answer
 
-baselining
+**baselining**
 
 ## Task 4
 
@@ -118,7 +118,7 @@ Run the Snort instance and check the build number.
 
 #### Answer
 
-149
+**149**
 
 ![Snort Build](images/snort-build.png)
 
@@ -128,7 +128,7 @@ Test the current instance with "/etc/snort/snort.conf" file and check how many r
 
 #### Answer
 
-4151
+**4151**
 
 ![Snort Rules Read](images/snort-rules-read.png)
 
@@ -144,7 +144,7 @@ For this, we can use the following command:
 
 #### Answer
 
-1
+**1**
 
 ![Snort Conf v2 Rules](images/snort-rules-v2.png)
 
@@ -188,7 +188,7 @@ You can practice the parameter combinations by using the traffic-generator scrip
 
 #### Answer
 
-No answer needed
+**No answer needed**
 
 ## Task 6
 
@@ -230,7 +230,7 @@ Now, you should have the logs in the current directory. Navigate to folder "145.
 
 #### Answer
 
-3009
+**3009**
 
 ![Task 6 Question 1](images/task6-question1.png)
 
@@ -244,7 +244,7 @@ Read the snort.log file with Snort; what is the IP ID of the 10th packet?
 
 #### Answer
 
-49313
+**49313**
 
 Navigate to the Task 6 directory from the home directroy:
 
@@ -262,7 +262,7 @@ Read the "snort.log.1640048004" file with Snort; what is the referer of the 4th 
 
 #### Answer
 
-http://www.ethereal.com/development.html
+**http://www.ethereal.com/development.html**
 
 To find this answer, you can use the `-X` to display the results in ASCII format. Run the following command:
 
@@ -278,7 +278,7 @@ Read the "snort.log.1640048004" file with Snort; what is the Ack number of the 8
 
 #### Answer
 
-0x38AFFFF3
+**0x38AFFFF3**
 
 Similar to the last question. Use the following command:
 
@@ -294,7 +294,7 @@ Read the "snort.log.1640048004" file with Snort; what is the number of the "TCP 
 
 #### Answer
 
-41
+**41**
 
 This question is just looking for the numbert of packets that fit this description. Here is the command I used:
 
