@@ -298,7 +298,7 @@ Read the "snort.log.1640048004" file with Snort; what is the number of the "TCP 
 
 This question is just looking for the numbert of packets that fit this description. Here is the command I used:
 
-```snort -r snort.log.1640048004 'tcp and port 80'
+```snort -r snort.log.1640048004 'tcp and port 80'```
 
 ![Task 6 Question 5](images/task6-question5.png)
 
