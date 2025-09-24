@@ -507,6 +507,171 @@ Run the following command:
 
 ![Task 8 Question 7](images/task8-question7.png)
 
+## Task 9
+
+### Snort Rules
+
+**`action`** - There are several actions for rules. Make sure you understand the functionality and test it before creating rules for live systems. The most common actions are listed below.
+
+    alert: Generate an alert and log the packet.
+    log: Log the packet.
+    drop: Block and log the packet.
+    reject: Block the packet, log it and terminate the packet session. 
+
+**`Protocol`** - Protocol parameter identifies the type of the protocol that filtered for the rule.
+
+Note that Snort2 supports only four protocols filters in the rules (IP, TCP, UDP and ICMP). However, you can detect the application flows using port numbers and options. For instance, if you want to detect FTP traffic, you cannot use the FTP keyword in the protocol field but filter the FTP traffic by investigating TCP traffic on port 21.
+
+**`IP Filtering`** - alert icmp 192.168.1.56 any <> any any  (msg: "ICMP Packet From "; sid: 100001; rev:1;)
+This rule will create an alert for each ICMP packet originating from the 192.168.1.56 IP address.
+
+**`Filter an IP Range`** - alert icmp 192.168.1.56 any <> any any  (msg: "ICMP Packet From "; sid: 100001; rev:1;)
+This rule will create an alert for each ICMP packet originating from the 192.168.1.56 IP address.
+
+**`Filter multiple IP ranges`** - alert icmp [192.168.1.0/24, 10.1.1.0/24] any <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
+This rule will create an alert for each ICMP packet originating from the 192.168.1.0/24 and 10.1.1.0/24 subnets.
+
+**`Exclude IP addresses/ranges`** - alert icmp [192.168.1.0/24, 10.1.1.0/24] any <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
+This rule will create an alert for each ICMP packet originating from the 192.168.1.0/24 and 10.1.1.0/24 subnets.
+
+**`Port Filtering`** - alert tcp any any <> any 21  (msg: "FTP Port 21 Command Activity Detected"; sid: 100001; rev:1;)
+This rule will create an alert for each TCP packet sent to port 21.
+
+**`Exclude a specific port`** - alert tcp any any <> any !21  (msg: "Traffic Activity Without FTP Port 21 Command Channel"; sid: 100001; rev:1;)
+This rule will create an alert for each TCP packet not sent to port 21.
+
+**`Filter a port range (Type 1)`** - alert tcp any any <> any 1:1024   (msg: "TCP 1-1024 System Port Activity"; sid: 100001; rev:1;)
+This rule will create an alert for each TCP packet sent to ports between 1-1024.
+
+**`Filter a port range (Type 2)`** - alert tcp any any <> any 1:1024   (msg: "TCP 1-1024 System Port Activity"; sid: 100001; rev:1;)
+This rule will create an alert for each TCP packet sent to ports between 1-1024.
+
+**`Filter a port range (Type 3)`** - alert tcp any any <> any 1025: (msg: "TCP Non-System Port Activity"; sid: 100001; rev:1;)
+This rule will create an alert for each TCP packet sent to source port higher than or equal to 1025.
+
+**`Filter a port range (Type 4)`** - alert tcp any any <> any 1025: (msg: "TCP Non-System Port Activity"; sid: 100001; rev:1;)
+This rule will create an alert for each TCP packet sent to source port higher than or equal to 1025.
+
+### Question 1
+
+Use "task9.pcap". Write a rule to filter IP ID "35369" and run it against the given pcap file. What is the request name of the detected packet? You may use this command: "```snort -c local.rules -A full -l . -r task9.pcap```"
+
+#### Answer
+
+**TIMESTAMP REQUEST**
+
+Configure the following rule in rules.local:
+
+```alert ip any any <> any any (msg: "IP ID 35369 found" id:35369; sid:1000001; rev:1;)```
+
+If you then run the command specified in the question and then run:
+
+```cat alert```
+
+You will get the following output:
+
+```[**] [1:1000001:1] IP ID 35369 found [**]```
+```[Priority: 0] ```
+```03/03-20:00:32.042975 192.168.121.2 -> 192.168.120.1```
+```ICMP TTL:255 TOS:0x0 ID:35369 IpLen:20 DgmLen:40```
+```Type:13  Code:0  ID: 7  Seq: 6  TIMESTAMP REQUEST```
+
+### Question 2
+
+Clear the previous alert file and comment out the old rules. Create a rule to filter packets with Syn flag and run it against the given pcap file. What is the number of detected packets?
+
+#### Answer
+
+**1**
+
+Add the following rule:
+
+```alert tcp any any <> any any (msg: "SYN flag detected"; flags:S; sid:1000001; rev:1;)```
+
+Then run the following command:
+
+```snort -c local.rules -A full -l . -r task9.pcap```
+
+Then cat the alert file:
+
+```cat alert```
+
+### Question 3
+
+Clear the previous alert file and comment out the old rules. Write a rule to filter packets with Push-Ack flags and run it against the given pcap file. What is the number of detected packets?
+
+#### Answer
+
+**216**
+
+This one I used the following rule:
+
+```alert tcp any any <> any any (msg: "Push-Ack flag detected"; flags:PA; sid:100001; rev:1;)```
+
+The ran the command:
+
+```snort -c local.rules -A full -l . -r task9.pcap```
+
+From there, I found the number of packets by grepping for 'Push-Ack flag detected':
+
+```grep -c 'Push-Ack flag detected' alert```
+
+That will give 216
+
+### Question 4 
+
+Clear the previous alert file and comment out the old rules. Create a rule to filter UDP packets with the same source and destination IP and run it against the given pcap file. What is the number of packets that show the same source and destination address?
+
+#### Answer
+
+**7**
+
+Add the following rule to local.rules:
+
+```alert udp any any <> any any (msg: "Same IP found"; sameip; sid:1000001; rev:1;)```
+
+Then run the following command:
+
+```snort -c local.rules -A full -l . -r task9.pcap```
+
+To find the number of packets, do the following:
+
+```grep -c "Same IP" alert```
+
+### Question 5
+
+Case Example - An analyst modified an existing rule successfully. Which rule option must the analyst change after the implementation?
+
+#### Answer
+
+**rev**
+
+## Task 10
+
+### Question 1
+
+Read the task above.
+
+#### Answer 
+
+**No answer needed**
+
+## Task 11
+
+### Notes
+
+Snort cheatsheet from TryHackMe can be found here:
+
+![Snort Cheat Sheet](files/PDF.js%20viewer.pdf)
+
+### Question 1
+
+Read the task above.
+
+#### Answer
+
+**No answer needed**
+
 
 
 
