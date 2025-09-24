@@ -385,7 +385,127 @@ You can practice the rest of the parameters by using the traffic-generator scrip
 
 **No answer needed**
 
+** Task 8
 
+*** PCAP Investigation with Snort
+
+**`-r / --pcap-single=`** - read a single pcap
+**`--pcap-list=""`** - Read pcaps provided in command (space separated)
+**`--pcap-show`** - Show pcap name on console during processing
+
+We can investigate a PCAP file from the terminal using a command like:
+
+```sudo snort -c /etc/snort/snort.conf -q -r imcp-test.pcap -A console -n 10```
+
+We can do the same thing with a list of PCAPs like this:
+
+```sudo snort -c /etc/snort/snort.conf -q --pcap-list="icmp-test.pcap http2.pcap" -A console -n 10```
+
+We can do something similar but distinguish each PCAP with the following:
+
+```sudo snort -c /etc/snort/snort.conf -q --pcap-list="icmp-test.pcap http2.pcap" -A console --pcap-show```
+
+### Question 1
+
+Investigate the mx-1.pcap file with the default configuration file.
+
+```sudo snort -c /etc/snort/snort.conf -A full -l . -r mx-1.pcap```
+What is the number of the generated alerts?
+
+#### Answer
+
+**170**
+
+Run the specified command: 
+
+```sudo snort -c /etc/snort/snort.conf -A full -l . -r mx-1.pcap```
+
+If you scroll up in the output you will see a field called alerts:
+
+![Task 8 Question 1](images/task8-question1.png)
+
+### Question 2
+
+Keep reading the output. How many TCP Segments are Queued?
+
+#### Answer
+
+**18**
+
+If you scroll further down in the output, you will find your answer:
+
+![Task 8 Question 2](images/task8-question2.png)
+
+### Question 3
+
+Keep reading the output.How many "HTTP response headers" were extracted?
+
+#### Answer
+
+**3**
+
+Further down in the output, we find HTTP Response Headers Extracted to equal 3:
+
+![Task 8 Question 3](images/task8-question3.png)
+
+### Question 4
+
+Investigate the mx-1.pcap file with the second configuration file.
+
+```sudo snort -c /etc/snort/snortv2.conf -A full -l . -r mx-1.pcap```
+What is the number of the generated alerts?
+
+#### Answer
+
+**68**
+
+Follow the same steps as question 1 but with a new  configuration file:
+
+```sudo snort -c /etc/snort/snortv2.conf -A full -l . -r mx-1.pcap```
+
+### Question 5
+
+Investigate the mx-2.pcap file with the default configuration file.
+
+```sudo snort -c /etc/snort/snort.conf -A full -l . -r mx-2.pcap```
+What is the number of the generated alerts?
+
+### Answer
+
+**340**
+
+Follow the same steps as question 4 and question 5. Run the following command and find the alerts field:
+
+```sudo snort -c /etc/snort/snort.conf -A full -l . -r mx-2.pcap```
+
+### Question 6
+
+Keep reading the output. What is the number of the detected TCP packets?
+
+#### Answer
+
+**82** 
+
+I found this by reading the output and finding TCP Port Filter > Tracked:
+
+![Task 8 Question 6](images/task8-question6.png)
+
+### Question 7
+
+Investigate the mx-2.pcap and mx-3.pcap files with the default configuration file.
+
+```sudo snort -c /etc/snort/snort.conf -A full -l . --pcap-list="mx-2.pcap mx-3.pcap"```
+What is the number of the generated alerts?
+
+#### Answer
+
+**1020**
+
+Run the following command:
+
+```sudo snort -c /etc/snort/snort.conf -A full -l . --pcap-list="mx-2.pcap mx-3.pcap"```
+
+![Task 8 Question 7](images/task8-question7.png)
 
 
 
